@@ -2,7 +2,9 @@ import os
 import os.path
 import sys
 import json
-from huggingface_hub import snapshot_download
+import requests
+#from huggingface_hub import snapshot_download
+
 class FooocusInpaintWrapper:
 	def __init__(self):
 		self.node_dir = os.path.dirname(os.path.realpath(__file__))
@@ -38,7 +40,14 @@ class FooocusInpaintWrapper:
 		self.find_replace(self.fooocus_dir + "\\modules\\config.py", './presets/default.json', self.fooocus_dir + "\\presets\\default.json")
 		self.find_replace(self.fooocus_dir + "\\args_manager.py", 'args_parser.args = args_parser.parser.parse_args()', 'args_parser.args, unknown = args_parser.parser.parse_known_args()')
 
-		snapshot_download(repo_id="LykosAI/GPT-Prompt-Expansion-Fooocus-v2", local_dir = self.fooocus_dir + '\\models\\prompt_expansion\\fooocus_expansion')
+		#snapshot_download(repo_id="LykosAI/GPT-Prompt-Expansion-Fooocus-v2", local_dir = self.fooocus_dir + '\\models\\prompt_expansion\\fooocus_expansion')
+
+		destination = self.comfyui_dir + 'models\\vae_approx\\xlvaeapp.pth'
+		if not os.path.isfile(destination):
+			response = requests.get('https://huggingface.co/lllyasviel/misc/resolve/main/xlvaeapp.pth?download=true')
+			if response.status_code == 200:
+				with open(destination, 'wb') as file:
+					file.write(response.content)
 
 	def find_replace(self, file_path, find_text, replace_text):
 		with open(file_path, 'r') as file:
