@@ -22,14 +22,14 @@ def get_config_path(key, default_value):
         return os.path.abspath(default_value)
 
 wildcards_max_bfs_depth = 64
-config_path = get_config_path('config_path', "C:\\Users\\iacop\\Downloads\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\custom_nodes\\ComfyUI_FooocusInpaint\\Fooocus\\config.txt")
+config_path = get_config_path('config_path', "./config.txt")
 config_example_path = get_config_path('config_example_path', "config_modification_tutorial.txt")
 config_dict = {}
 always_save_keys = []
 visited_keys = []
 
 try:
-    with open(os.path.abspath(f'C:\\Users\\iacop\\Downloads\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\custom_nodes\\ComfyUI_FooocusInpaint\\Fooocus\\presets\\default.json'), "r", encoding="utf-8") as json_file:
+    with open(os.path.abspath(f'./presets/default.json'), "r", encoding="utf-8") as json_file:
         config_dict.update(json.load(json_file))
 except Exception as e:
     print(f'Load default preset failed.')
