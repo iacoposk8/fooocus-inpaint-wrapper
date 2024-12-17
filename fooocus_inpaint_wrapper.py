@@ -23,7 +23,7 @@ class FooocusInpaintWrapper:
 				"path_embeddings": os.path.normpath(self.comfyui_dir + "/models/embeddings"),
 				"path_vae_approx": os.path.normpath(self.comfyui_dir + "/models/vae_approx"),
 				"path_vae": os.path.normpath(self.comfyui_dir + "/models/vae"),
-				"path_upscale_/models": os.path.normpath(self.comfyui_dir + "/models/upscale_/models"),
+				"path_upscale_models": os.path.normpath(self.comfyui_dir + "/models/upscale_/models"),
 				"path_inpaint": os.path.normpath(self.comfyui_dir + "/models/inpaint"),
 				"path_controlnet": os.path.normpath(self.comfyui_dir + "/models/controlnet"),
 				"path_clip_vision": os.path.normpath(self.comfyui_dir + "/models/clip_vision"),
@@ -73,7 +73,7 @@ class FooocusInpaintWrapper:
 		with open(file_path, 'r') as file:
 			content = file.read()
 
-		new_content = content.replace(find_text, replace_text)
+		new_content = content.replace(find_text, replace_text.replace("\\","\\\\"))
 
 		with open(file_path, 'w') as file:
 			file.write(new_content)
@@ -101,7 +101,7 @@ class FooocusInpaintWrapper:
 				"image": ("IMAGE",),
 				"mask": ("MASK",),
 				"performance": (["Quality", "Speed", "Extreme Speed", "Lightning", "Hyper-SD"], {"default": "Speed"}),
-				"checkpoint": (checkpoints, {"default": "juggernautXL_v8Rundiffusion.safetensors"}),
+				"checkpoint": (checkpoints, {"default": checkpoints[0]}),
 				"prompt": ("STRING", {"multiline": True}),
 				"guidance_scale": ("FLOAT", {"default": 4, "min": 0, "max": 30.0}),
 				"image_sharpness": ("FLOAT", {"default": 2, "min": 0, "max": 30.0}),
@@ -111,7 +111,7 @@ class FooocusInpaintWrapper:
 				"negative_prompt": ("STRING", {"multiline": True}),
 				"method": (["", "Improve Detail", "Modify content"],),
 				"inpaint_additional_prompt": ("STRING", {"multiline": True}),
-				"lora1": (loras, {"default": "sd_xl_offset_example-lora_1.0.safetensors"}),
+				"lora1": (loras, {"default": "None"}),
 				"lora1_weight": ("FLOAT", {"default": 0.1, "min": -2, "max": 2}),
 				"lora2": (loras, {"default": "None"}),
 				"lora2_weight": ("FLOAT", {"default": 0.1, "min": -2, "max": 2}),
