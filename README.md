@@ -1,0 +1,1 @@
+# fooocus-inpaint-wrapper
