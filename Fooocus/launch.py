@@ -90,7 +90,7 @@ def fooocusinpaintlaunch(fooocus_dir, image_array, mask_array, performance, chec
 	worker.async_tasks.append(task)
 	worker.worker()
 
-	final_image = fooocusinpaint_findpng(fooocus_dir+"\outputs")
+	final_image = fooocusinpaint_findpng(os.path.normpath(fooocus_dir+"/outputs"))
 	tensor_image = fooocusinpaint_image_to_tensor(final_image)
-	fooocusinpaint_clear_folder(fooocus_dir+"\outputs")
+	fooocusinpaint_clear_folder(os.path.normpath(fooocus_dir+"/outputs"))
 	return tensor_image
