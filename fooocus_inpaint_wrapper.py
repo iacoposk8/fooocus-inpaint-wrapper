@@ -3,7 +3,7 @@ import os.path
 import sys
 import json
 import requests
-#from huggingface_hub import snapshot_download
+from huggingface_hub import snapshot_download
 
 class FooocusInpaintWrapper:
 	def __init__(self):
@@ -40,7 +40,7 @@ class FooocusInpaintWrapper:
 		self.find_replace(self.fooocus_dir + "\\modules\\config.py", './presets/default.json', self.fooocus_dir + "\\presets\\default.json")
 		self.find_replace(self.fooocus_dir + "\\args_manager.py", 'args_parser.args = args_parser.parser.parse_args()', 'args_parser.args, unknown = args_parser.parser.parse_known_args()')
 
-		#snapshot_download(repo_id="LykosAI/GPT-Prompt-Expansion-Fooocus-v2", local_dir = self.fooocus_dir + '\\models\\prompt_expansion\\fooocus_expansion')
+		snapshot_download(repo_id="LykosAI/GPT-Prompt-Expansion-Fooocus-v2", local_dir = self.comfyui_dir + '\\models\\prompt_expansion\\fooocus_expansion')
 
 		destination = self.comfyui_dir + 'models\\vae_approx\\xlvaeapp.pth'
 		if not os.path.isfile(destination):
