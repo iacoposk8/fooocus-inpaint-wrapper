@@ -8,6 +8,7 @@ The best inpaint I found is [Fooocus](https://github.com/lllyasviel/Fooocus)'s o
     git clone https://github.com/iacoposk8/ComfyUI-Fooocus-Inpaint-Wrapper
     cd ../..
     .\python_embeded\python.exe -m pip install -r ComfyUI/custom_nodes/ComfyUI-Fooocus-Inpaint-Wrapper/Fooocus/requirements_versions.txt
+The first time you run it, it will take longer because it will have to download the various models. Check the progress in the terminal.
 
 ## How does it work?
 
