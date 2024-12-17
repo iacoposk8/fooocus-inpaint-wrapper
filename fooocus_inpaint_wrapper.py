@@ -64,7 +64,7 @@ class FooocusInpaintWrapper:
 
         elem = "sd_xl_offset_example-lora_1.0.safetensors"
         if elem not in loras:
-            loras.append(elemento)
+            loras.append(elem)
         loras.append("None")
 
         return {
