@@ -75,7 +75,8 @@ def fooocusinpaintlaunch(fooocus_dir, image_array, mask_array, performance, chec
 	image_array = fooocusinpaint_tensor2np(image_array)
 	mask_array = fooocusinpaint_tensor2np(mask_array)
 
-	#checkpoint = 'juggernautXL_v8Rundiffusion.safetensors'
+	if checkpoint == "No checkpoints found":
+		checkpoint = 'juggernautXL_v8Rundiffusion.safetensors'
 
 	method_setting = [False, 'v2.6', 1, 0.618]
 	if method == "Improve Detail":
