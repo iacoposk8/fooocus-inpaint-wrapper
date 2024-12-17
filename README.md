@@ -11,7 +11,7 @@ The best inpaint I found is [Fooocus](https://github.com/lllyasviel/Fooocus)'s o
 
 ## How does it work?
 
-If Fooocus is updated in the future, you just need to copy the whole folder and insert it into the node. You can skip copying the models, because it will use the comfyui folder.
+If Fooocus is updated in the future, you just need to copy the whole folder and insert it into the node. You can skip copying the models, because it will use the comfyui folder. Inside the copied folder you must also insert the launch.py ​​file that you find in this repository.
 You will have to make some changes to the code. Some will be done automatically, you can find them inside the fooocus-inpaint-wrapper.py constructor
 These must be done manually for now:
 Edit modules/async_worker.py  
