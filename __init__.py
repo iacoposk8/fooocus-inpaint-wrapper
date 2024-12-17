@@ -1,4 +1,4 @@
-from .fooocus-inpaint-wrapper import FooocusInpaintWrapper
+from .fooocus_inpaint_wrapper import FooocusInpaintWrapper
 
 NODE_CLASS_MAPPINGS = { "FooocusInpaintWrapper": FooocusInpaintWrapper }
 
