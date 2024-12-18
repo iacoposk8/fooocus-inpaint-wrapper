@@ -10,8 +10,8 @@ The first time you run it, it will take longer because it will have to download 
 
 ## Quick start
 There are two simple workflows in the folder of the same name, one called simple, where you will have to draw the mask by hand and the other that can generate it automatically
-![automatic masking workflow](Workflows/automatic_masking.png)
 ![simple workflow](Workflows/simple.png)
+![automatic masking workflow](Workflows/automatic_masking.png)
 
 ## How does it work?
 If Fooocus is updated in the future, you just need to copy the whole folder and insert it into the node. You can skip copying the models, because it will use the comfyui folder. Inside the copied folder you must also insert the launch.py ​​file that you find in this repository.
