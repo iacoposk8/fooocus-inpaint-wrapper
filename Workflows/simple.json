@@ -1,0 +1,174 @@
+{
+  "last_node_id": 10,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "FooocusInpaintWrapper",
+      "pos": [
+        1015.30126953125,
+        83.78456115722656
+      ],
+      "size": [
+        400,
+        604
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FooocusInpaintWrapper"
+      },
+      "widgets_values": [
+        "Speed",
+        "RealisticStockPhoto_V2.safetensors",
+        "blonde hair",
+        4,
+        2,
+        745968057024950,
+        "randomize",
+        "",
+        "",
+        "",
+        "None",
+        0.1,
+        "None",
+        0.1,
+        "None",
+        0.1,
+        "None",
+        0.1,
+        "None",
+        0.1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "SaveImage",
+      "pos": [
+        1482.7496337890625,
+        85.91411590576172
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        633.6103515625,
+        83.9927749633789
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            9
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-1008886.8000000119.png [input]",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      6,
+      2,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      2,
+      1,
+      9,
+      1,
+      "MASK"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7513148009015777,
+      "offset": {
+        "0": -245.4514617919922,
+        "1": 87.149169921875
+      }
+    }
+  },
+  "version": 0.4
+}
