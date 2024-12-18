@@ -1,4 +1,5 @@
 
+
 # ComfyUI Fooocus Inpaint Wrapper
 The best inpaint I found is [Fooocus](https://github.com/lllyasviel/Fooocus)'s one, I've never been able to replicate these results on other GUIs. I did something very simple, this is a simple wrapper of practically all the Fooocus code, probably you could do something more refined, probably in the future I'll do something more refined and lightweight but for now it's like this :)
 
@@ -15,10 +16,22 @@ The first time you run it, it will take longer because it will have to download 
 If Fooocus is updated in the future, you just need to copy the whole folder and insert it into the node. You can skip copying the models, because it will use the comfyui folder. Inside the copied folder you must also insert the launch.py ​​file that you find in this repository.
 You will have to make some changes to the code. Some will be done automatically, you can find them inside the fooocus-inpaint-wrapper.py constructor
 These must be done manually for now:
-Edit modules/async_worker.py  
+Edit `Fooocus/modules/async_worker.py`
 and comment on the last line:
-#threading.Thread(target=worker, daemon=True).start()  
+`#threading.Thread(target=worker, daemon=True).start()`
 Then move a few lines up and remove:
-while True:  
-and
-time.sleep(0.01)
+`while True:` and `time.sleep(0.01)`
+
+Several things could change and these instructions could no longer be valid. However, what the code does is almost all in `Fooocus/launch.py` ​​where it creates the variable `args` and sends it to `Fooocus/modules/async_worker.py`. We can get the variable `args` by running Fooocus and modifying the file `Fooocus/webui.py` by modifying this function like this:
+
+    def get_task(*args):
+	    args = list(args)
+	    args.pop(0)
+    
+	    print(args)
+	    import sys
+	    sys.exit()
+    
+	    return worker.AsyncTask(args=args)
+
+From the interface we will launch a statement and we will see the variable `args` in the terminal.
