@@ -36,3 +36,5 @@ Several things could change and these instructions could no longer be valid. How
 	    return worker.AsyncTask(args=args)
 
 From the interface we will launch a statement and we will see the variable `args` in the terminal.
+
+Also there is a file called clean.py which I haven't tested much but it should delete all the __pycache__ folders, remove the config files and remove all absolute references
